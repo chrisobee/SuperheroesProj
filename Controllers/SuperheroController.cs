@@ -71,6 +71,7 @@ namespace Superheroes.Controllers
             {
                 var superheroToEdit = _context.Superheroes.Where(s => s.Id == id).SingleOrDefault();
                 superheroToEdit.Name = superhero.Name;
+                superheroToEdit.AlterEgo = superhero.AlterEgo;
                 superheroToEdit.PrimaryAbility = superhero.PrimaryAbility;
                 superheroToEdit.SecondaryAbility = superhero.SecondaryAbility;
                 superheroToEdit.Catchphrase = superhero.Catchphrase;
@@ -87,17 +88,21 @@ namespace Superheroes.Controllers
         // GET: Superhero/Delete/5
         public IActionResult Delete(int id)
         {
-            return View();
+            var superhero = _context.Superheroes.Where(s => s.Id == id).SingleOrDefault();
+
+            return View(superhero);
         }
 
         // POST: Superhero/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(int id, Superhero superhero)
         {
             try
             {
-                // TODO: Add delete logic here
+                var superheroToDelete = _context.Superheroes.Where(s => s.Id == id).SingleOrDefault();
+                _context.Remove(superheroToDelete);
+                _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
