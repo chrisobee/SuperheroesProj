@@ -8,8 +8,13 @@
 <h1>The Best Superheroes</h1>
 @foreach (var superhero in Model)
 {
-    <a asp-controller="Superhero"
-       asp-action="Details"
-       asp-route-id="@superhero.Id"><h4>@superhero.Name</h4></a>
+    <div class="card border-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-body">
+            <a asp-controller="Superhero"
+               asp-action="Details"
+               asp-route-id="@superhero.Id"><h4 style="text-decoration:none; color: white;">@superhero.Name</h4></a>        
+        </div>
+    </div>
+    
 }
 
