@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-Superheroes-916DE11F-5AA2-4D9E-8C26-942B15BF96AE</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200420181042_Initial.cs" />
+    <Compile Remove="Data\Migrations\20200420181042_Initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200420181330_Initial.cs" />
+    <Compile Remove="Data\Migrations\20200420181330_Initial.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
