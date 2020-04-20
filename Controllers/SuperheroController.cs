@@ -65,11 +65,16 @@ namespace Superheroes.Controllers
         // POST: Superhero/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, IFormCollection collection)
+        public IActionResult Edit(int id, Superhero superhero)
         {
             try
             {
-                // TODO: Add update logic here
+                var superheroToEdit = _context.Superheroes.Where(s => s.Id == id).SingleOrDefault();
+                superheroToEdit.Name = superhero.Name;
+                superheroToEdit.PrimaryAbility = superhero.PrimaryAbility;
+                superheroToEdit.SecondaryAbility = superhero.SecondaryAbility;
+                superheroToEdit.Catchphrase = superhero.Catchphrase;
+                _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
