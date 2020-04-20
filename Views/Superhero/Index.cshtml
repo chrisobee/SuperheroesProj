@@ -1,7 +1,13 @@
-﻿
+﻿@model List<Superheroes.Models.Superhero>
+
 @{
     ViewData["Title"] = "Home";
 }
 
+
 <h1>The Best Superheroes</h1>
+@foreach (var superhero in Model)
+{
+    <h4>@superhero.Name</h4>
+}
 
