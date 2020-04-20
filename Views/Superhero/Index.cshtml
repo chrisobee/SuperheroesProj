@@ -8,6 +8,8 @@
 <h1>The Best Superheroes</h1>
 @foreach (var superhero in Model)
 {
-    <h4>@superhero.Name</h4>
+    <a asp-controller="Superhero"
+       asp-action="Details"
+       asp-route-id="@superhero.Id"><h4>@superhero.Name</h4></a>
 }
 
