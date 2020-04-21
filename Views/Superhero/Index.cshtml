@@ -5,16 +5,27 @@
 }
 
 
-<h1>The Best Superheroes</h1>
-@foreach (var superhero in Model)
-{
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-        <div class="card-body">
-            <a asp-controller="Superhero"
-               asp-action="Details"
-               asp-route-id="@superhero.Id"><h4 style="text-decoration:none; color: white;">@superhero.Name</h4></a>        
-        </div>
+<div class="row">
+    <div class="col-md-6">
+        <h1>The Superheroes</h1>
+
+        @foreach (var superhero in Model)
+        {
+            <div class="card border-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-body">
+                    <a asp-controller="Superhero"
+                       asp-action="Details"
+                       asp-route-id="@superhero.Id"><h4 style="color: white;">@superhero.AlterEgo</h4></a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        <h2>The Actual Best Superhero</h2>
+        <img style="max-width:80%;"src="/images/ThanosPic.jpg" asp-append-version="true" />
+        <span class="badge badge-secondary align-text-bottom">Thambos</span>
     </div>
     
-}
+</div>
+
 
